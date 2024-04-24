@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Controle de Despesas</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="flex justify-center items-center h-screen">
+            <div
+                class="rounded-border bg-white max-w-md w-full border-dark border-2 rounded-3xl p-6"
+            >
+                <h1 class="text-2xl mb-1">Olá!</h1>
+                <div class="mb-1">
+                    <h4>Seja bem-vindo(a).</h4>
+                    <h4>Vamos criar seu cadastro?</h4>
+                </div>
+                <p class="mb-4 text-gray-500">Preencha os campos abaixo:</p>
+                <form class="mb-4">
+                    <div class="flex justify-around mb-4">
+                        <div>
+                            <label for="nome" class="required-label ml-3"
+                                >Nome<span class="text-red-500">*</span></label
+                            >
+                            <input
+                                id="nome"
+                                type="text"
+                                class="flex p-2 border rounded-full"
+                                required
+                            />
+                        </div>
+                        <div>
+                            <label for="sobrenome" class="required-label ml-3"
+                                >Sobrenome<span class="text-red-500"
+                                    >*</span
+                                ></label
+                            >
+                            <input
+                                id="sobrenome"
+                                type="text"
+                                class="flex p-2 border rounded-full"
+                                required
+                            />
+                        </div>
+                    </div>
+                    <label for="telefone" class="ml-3">Telefone</label>
+                    <input
+                        id="telefone"
+                        type="tel"
+                        class="w-full mb-2 p-2 border rounded-full"
+                    />
+                    <label for="email" class="required-label ml-3"
+                        >Email<span class="text-red-500">*</span></label
+                    >
+                    <input
+                        id="email"
+                        type="email"
+                        class="w-full mb-2 p-2 border rounded-full"
+                        required
+                    />
+                    <label for="senha" class="required-label ml-3"
+                        >Senha<span class="text-red-500">*</span></label
+                    >
+                    <input
+                        id="senha"
+                        type="password"
+                        class="w-full mb-2 p-2 border rounded-full"
+                        required
+                    />
+                    <label for="confirmar-senha" class="required-label ml-3"
+                        >Confirmação de Senha<span class="text-red-500"
+                            >*</span
+                        ></label
+                    >
+                    <input
+                        id="confirmar-senha"
+                        type="password"
+                        class="w-full mb-2 p-2 border rounded-full"
+                        required
+                    />
+                    <label class="flex items-center justify-center mb-2">
+                        <input type="checkbox" class="mr-2 text-gray-500" />
+                        <span class="text-gray-500"
+                            >Li e concordo com os termos e condições.</span
+                        >
+                    </label>
+                    <div class="flex justify-center">
+                        <button
+                            type="submit"
+                            class="bg-blue-500 text-white px-4 py-1 rounded-full mr-2"
+                        >
+                            Salvar
+                        </button>
+                        <button
+                            type="button"
+                            class="bg-gray-500 text-white px-4 py-1 rounded-full"
+                        >
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+                <p class="mt-4 text-center text-black-500">
+                    Já possui cadastro?
+                    <a href="#" class="text-blue-500 underline">Faça login</a>
+                </p>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
