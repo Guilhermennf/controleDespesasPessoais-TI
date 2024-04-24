@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Controle de Despesas</title>
+        <!-- Importação da fonte Inter -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="flex justify-center items-center h-screen">
+            <div
+                class="rounded-border max-w-md w-full border-dark border-2 rounded-3xl p-6"
+            >
+                <div class="mb-4 border-b border-gray-200 dark:border-gray-700">
+                    <ul
+                        class="flex flex-wrap -mb-px text-sm font-medium text-center"
+                        role="tablist"
+                    >
+                        <li class="me-2" role="presentation">
+                            <button
+                                class="inline-block p-4 border-b-2 rounded-t-lg active"
+                                id="login-styled-tab"
+                                data-tabs-target="#styled-login"
+                                type="button"
+                                role="tab"
+                                aria-controls="styled-login"
+                                aria-selected="true"
+                            >
+                                Login
+                            </button>
+                        </li>
+                        <li class="me-2" role="presentation">
+                            <button
+                                class="inline-block p-4 border-b-2 rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300"
+                                id="esqueci-senha-styled-tab"
+                                data-tabs-target="#styled-esqueci-senha"
+                                type="button"
+                                role="tab"
+                                aria-controls="styled-esqueci-senha"
+                                aria-selected="false"
+                            >
+                                Esqueci minha senha
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <div id="default-styled-tab-content">
+                    <div
+                        class="p-4 rounded-lg"
+                        id="styled-login"
+                        role="tabpanel"
+                        aria-labelledby="login-styled-tab"
+                    >
+                        <form class="mb-4">
+                            <label for="email" class="required-label ml-3"
+                                >Email</label
+                            >
+                            <input
+                                id="email"
+                                type="email"
+                                class="w-full mb-2 p-2 border rounded-full"
+                                required
+                            />
+                            <label for="senha" class="required-label ml-3"
+                                >Senha</label
+                            >
+                            <input
+                                id="senha"
+                                type="password"
+                                class="w-full mb-2 p-2 border rounded-full"
+                                required
+                            />
+                            <div class="flex justify-start">
+                                <button
+                                    type="submit"
+                                    class="flex bg-blue-500 text-white px-4 py-1 rounded-full mr-2"
+                                >
+                                    <svg
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 46 39"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="mr-2 mt-0.5"
+                                    >
+                                        <path
+                                            d="M20.5 2H36.5C40.9183 2 44.5 5.58172 44.5 10V29.5C44.5 33.9183 40.9183 37.5 36.5 37.5H20.5"
+                                            stroke="white"
+                                            stroke-width="3"
+                                        />
+                                        <path
+                                            d="M38 19.5L23 10.8397L23 28.1603L38 19.5ZM1.09667e-08 21L24.5 21L24.5 18L-9.93909e-09 18L1.09667e-08 21Z"
+                                            fill="white"
+                                        />
+                                    </svg>
+                                    Acessar
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div
+                        class="hidden p-4 rounded-lg"
+                        id="styled-esqueci-senha"
+                        role="tabpanel"
+                        aria-labelledby="esqueci-senha-styled-tab"
+                    >
+                        <form class="mb-4">
+                            <label for="email" class="required-label ml-3"
+                                >Informe um e-mail e enviaremos um link para
+                                recuperação da sua senha.</label
+                            >
+                            <input
+                                id="email"
+                                type="email"
+                                class="w-full mb-2 p-2 border rounded-full"
+                                placeholder="Informe seu e-mail"
+                                required
+                            />
+                            <div class="flex justify-start">
+                                <button
+                                    type="submit"
+                                    class="flex bg-blue-500 text-white px-4 py-1 rounded-full mr-2"
+                                >
+                                    <svg
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 25 25"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="mr-2 mt-0.5 bg-inherit"
+                                    >
+                                        <path
+                                            d="M22.9167 0H2.08333C1.5308 0 1.00089 0.219493 0.610194 0.610194C0.219493 1.00089 0 1.5308 0 2.08333V22.9167C0 23.4692 0.219493 23.9991 0.610194 24.3898C1.00089 24.7805 1.5308 25 2.08333 25H22.9167C23.4692 25 23.9991 24.7805 24.3898 24.3898C24.7805 23.9991 25 23.4692 25 22.9167V2.08333C25 1.5308 24.7805 1.00089 24.3898 0.610194C23.9991 0.219493 23.4692 0 22.9167 0ZM10.8984 20.8971C9.73771 21.6883 8.32349 22.0178 6.93261 21.8211C5.54173 21.6244 4.27434 20.9157 3.37851 19.8337C2.48268 18.7517 2.02291 17.3743 2.08922 15.9711C2.15552 14.568 2.74311 13.2401 3.73698 12.2474L7.04036 8.94401C8.09862 7.88769 9.53276 7.29442 11.028 7.29442C12.5232 7.29442 13.9574 7.88769 15.0156 8.94401C15.5874 9.51237 16.0294 10.1978 16.3112 10.9531C16.3591 11.0814 16.3812 11.2178 16.3764 11.3546C16.3715 11.4914 16.3398 11.6259 16.283 11.7504C16.2261 11.875 16.1453 11.9871 16.0452 12.0804C15.945 12.1737 15.8275 12.2464 15.6992 12.2943C15.571 12.3421 15.4346 12.3643 15.2978 12.3595C15.1609 12.3546 15.0264 12.3229 14.9019 12.266C14.7774 12.2092 14.6652 12.1284 14.5719 12.0283C14.4786 11.9281 14.406 11.8105 14.3581 11.6823C14.1487 11.1252 13.803 10.6296 13.3526 10.2406C12.9022 9.85172 12.3615 9.58196 11.7798 9.45605C11.1982 9.33014 10.5943 9.3521 10.0234 9.51992C9.45244 9.68774 8.9327 9.99606 8.51172 10.4167L5.20833 13.7201C4.58216 14.3463 4.21206 15.1835 4.17041 16.0681C4.12876 16.9527 4.41854 17.821 4.98311 18.5032C5.54768 19.1855 6.34643 19.6327 7.22318 19.7573C8.09993 19.8819 8.99164 19.675 9.72396 19.1771C9.8366 19.0928 9.96513 19.0323 10.1018 18.9991C10.2385 18.9659 10.3805 18.9607 10.5192 18.9838C10.6579 19.007 10.7906 19.058 10.909 19.1338C11.0275 19.2096 11.1294 19.3085 11.2086 19.4248C11.2878 19.541 11.3427 19.6721 11.3698 19.8101C11.397 19.9481 11.3959 20.0902 11.3667 20.2278C11.3375 20.3654 11.2807 20.4956 11.1998 20.6106C11.1188 20.7257 11.0154 20.8231 10.8958 20.8971H10.8984ZM21.2643 12.7526L17.9609 16.056C17.4387 16.5815 16.8174 16.9981 16.1331 17.2818C15.4487 17.5654 14.7148 17.7104 13.974 17.7083C12.8264 17.7068 11.7066 17.3556 10.7637 16.7014C9.82085 16.0473 9.09978 15.1213 8.69661 14.0469C8.59992 13.7879 8.61007 13.5011 8.72484 13.2496C8.83961 12.998 9.04959 12.8024 9.30859 12.7057C9.56759 12.609 9.8544 12.6192 10.1059 12.734C10.3574 12.8487 10.553 13.0587 10.6497 13.3177C10.9039 13.9934 11.3574 14.5758 11.9502 14.9879C12.5429 15.3999 13.2469 15.6221 13.9687 15.625C14.4361 15.6263 14.8991 15.535 15.3309 15.3562C15.7627 15.1774 16.1548 14.9147 16.4844 14.5833L19.7917 11.2799C20.4178 10.6537 20.7879 9.8165 20.8296 8.93192C20.8712 8.04733 20.5815 7.17902 20.0169 6.49675C19.4523 5.81449 18.6536 5.36733 17.7768 5.24271C16.9001 5.11809 16.0084 5.32498 15.276 5.82292C15.1634 5.90715 15.0349 5.9677 14.8982 6.00091C14.7615 6.03413 14.6195 6.03932 14.4808 6.01617C14.3421 5.99302 14.2094 5.94202 14.091 5.86623C13.9725 5.79045 13.8705 5.69145 13.7914 5.57521C13.7122 5.45897 13.6573 5.3279 13.6302 5.18989C13.603 5.05189 13.6041 4.90981 13.6333 4.77223C13.6625 4.63464 13.7193 4.50441 13.8002 4.38937C13.8812 4.27433 13.9846 4.17687 14.1042 4.10286C15.2651 3.31568 16.6777 2.98929 18.0663 3.18739C19.455 3.38549 20.7199 4.09386 21.6145 5.17428C22.509 6.25471 22.9689 7.62966 22.9044 9.03085C22.8399 10.432 22.2556 11.7589 21.2656 12.7526H21.2643Z"
+                                            fill="white"
+                                        />
+                                    </svg>
+
+                                    Enviar link de recuperação
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const tabs = document.querySelectorAll("[data-tabs-target]");
+
+                tabs.forEach((tab) => {
+                    tab.addEventListener("click", () => {
+                        const target = document.querySelector(
+                            tab.dataset.tabsTarget
+                        );
+                        const allTabs =
+                            document.querySelectorAll("[data-tabs-target]");
+                        const allTabContents =
+                            document.querySelectorAll('[id^="styled-"]');
+
+                        allTabs.forEach((tab) => {
+                            tab.classList.remove("active");
+                        });
+
+                        allTabContents.forEach((tabContent) => {
+                            tabContent.classList.add("hidden");
+                        });
+
+                        tab.classList.add("active");
+                        target.classList.remove("hidden");
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
