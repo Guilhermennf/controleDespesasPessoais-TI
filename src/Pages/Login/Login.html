@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login - Controle de Despesas</title>
+        <!-- Importação da fonte Inter -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
+            rel="stylesheet"
+        />
+    </head>
+
+    <body>
+        <div class="w-full min-h-screen" style="background-color: #667eff">
+            <!-- <div class="w-full flex justify-center flex-col items-center gap-2">
+        <span class="font-medium text-lg" style="color: #d8deff"
+          >software de gestão financeira pessoal</span
+        >
+      </div> -->
+
+            <div class="flex min-h-screen flex-col justify-center items-center">
+                <div
+                    class="flex flex-col flex-wrap rounded-border max-w-lg w-full rounded-3xl pt-6 px-4 sm:px-14"
+                    style="
+                        background: linear-gradient(to right, #aab8ff, #768bff);
+                    "
+                >
+                    <div class="flex items-center justify-center">
+                        <img
+                            src="../../assets/images/syncTitle.png"
+                            alt="Logo"
+                            class="mt-8 max-w-sm"
+                        />
+                    </div>
+
+                    <div
+                        style="color: #d8deff"
+                        class="py-8 flex items-center font-medium text-3xl underline justify-between px-12"
+                    >
+                        <span class="mb-4">Login</span>
+                        <span></span>
+                    </div>
+
+                    <form class="w-full lg:w-auto">
+                        <div class="mb-4 flex flex-col w-full px-5">
+                            <div class="flex flex-grow flex-col">
+                                <label
+                                    for="email"
+                                    class="required-label ml-3 font-extrabold"
+                                    style="color: #e8ecff"
+                                    >Email<span class="text-red-500"
+                                        >*</span
+                                    ></label
+                                >
+                                <input
+                                    id="email"
+                                    type="text"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                    "
+                                    class="flex-grow p-1 border rounded-full"
+                                    required
+                                />
+                            </div>
+                            <div class="flex flex-grow flex-col">
+                                <label
+                                    for="password"
+                                    class="required-label font-extrabold ml-3"
+                                    style="color: #e8ecff"
+                                    >Senha<span class="text-red-500"
+                                        >*</span
+                                    ></label
+                                >
+                                <input
+                                    id="password"
+                                    type="password"
+                                    class="p-1 flex-grow border rounded-full"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                    "
+                                    required
+                                />
+                            </div>
+
+                            <div class="flex justify-center mt-4 pb-16">
+                                <button
+                                    type="submit"
+                                    class="text-white px-4 font-bold py-1 rounded-full mr-2 flex items-center gap-2"
+                                    style="background-color: #61ffb3"
+                                >
+                                    <svg
+                                        width="17"
+                                        height="15"
+                                        viewBox="0 0 17 15"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M7.37061 0.736328H13.1234C14.712 0.736328 15.9998 2.02414 15.9998 3.61273V10.624C15.9998 12.2126 14.712 13.5004 13.1234 13.5004H7.37061"
+                                            stroke="white"
+                                            stroke-width="1.07865"
+                                        />
+                                        <path
+                                            d="M13.6629 7.02832L8.26967 3.91452L8.26967 10.1421L13.6629 7.02832ZM3.64956e-09 7.56765L8.80899 7.56765L8.80899 6.48899L-4.1152e-09 6.48899L3.64956e-09 7.56765Z"
+                                            fill="white"
+                                        />
+                                    </svg>
+                                    Acessar
+                                </button>
+                            </div>
+                            <p
+                                class="text-center text-black-500 mb-2"
+                                style="color: #d8deff"
+                            >
+                                Não possui login?
+                                <a
+                                    href="../../index.html"
+                                    class="underline font-semibold"
+                                    >Faça cadastro</a
+                                >
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script src="Login.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </body>
+</html>
