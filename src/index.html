@@ -19,8 +19,239 @@
         />
     </head>
     <body>
-        <h1 class="text-2xl text-center mt-8 text-blue-500">Hello, World!</h1>
+        <div
+            class="w-full flex flex-col justify-between min-h-screen"
+            style="background-color: #667eff"
+        >
+            <div class="w-full flex justify-center flex-col items-center gap-2">
+                <img
+                    src="./assets/images/syncTitle.png"
+                    alt="Logo"
+                    class="mt-8"
+                />
+                <span class="font-medium text-lg" style="color: #d8deff"
+                    >software de gestão financeira pessoal</span
+                >
+            </div>
+
+            <div class="flex w-full justify-evenly flex-wrap mt-12 px-24">
+                <div class="flex flex-col items-center">
+                    <span
+                        class="font-bold text-4xl max-w-sm"
+                        style="color: #d8deff"
+                    >
+                        Sincronize suas finanças, simplifique sua vida.
+                    </span>
+                    <img
+                        src="./assets/images/pcImage.png"
+                        alt="Logo"
+                        class="mt-16"
+                    />
+                </div>
+
+                <div
+                    class="flex flex-col flex-wrap rounded-border max-w-lg w-full rounded-t-3xl pt-6 px-14"
+                    style="
+                        background: linear-gradient(to right, #aab8ff, #768bff);
+                    "
+                >
+                    <h1
+                        class="text-2xl mb-1 font-extrabold"
+                        style="color: #d8deff"
+                    >
+                        Olá!
+                    </h1>
+                    <div class="mb-1 text-2xl" style="color: #d8deff">
+                        <h4 style="color: #d8deff">Seja bem-vindo(a).</h4>
+                        <h4 class="text-2xl" style="color: #d8deff">
+                            Vamos criar seu cadastro?
+                        </h4>
+                    </div>
+                    <p class="mb-4" style="color: #d8deff">
+                        Preencha os campos abaixo:
+                    </p>
+                    <form class="w-full lg:w-auto">
+                        <div class="mb-4 flex flex-col w-full flex-wrap">
+                            <div class="flex w-full flex-wrap gap-4 mb-4">
+                                <div class="flex flex-grow flex-col">
+                                    <label
+                                        for="nome"
+                                        class="required-label ml-3 font-extrabold"
+                                        style="color: #e8ecff"
+                                        >Nome<span class="text-red-500"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <input
+                                        id="nome"
+                                        type="text"
+                                        style="
+                                            background-color: inherit;
+                                            border-color: #d8deff;
+                                        "
+                                        class="flex-grow p-1 border rounded-full"
+                                        required
+                                    />
+                                </div>
+                                <div class="flex flex-grow flex-col">
+                                    <label
+                                        for="sobrenome"
+                                        class="required-label font-extrabold ml-3"
+                                        style="color: #e8ecff"
+                                        >Sobrenome<span class="text-red-500"
+                                            >*</span
+                                        ></label
+                                    >
+                                    <input
+                                        id="sobrenome"
+                                        type="text"
+                                        class="p-1 flex-grow border rounded-full"
+                                        style="
+                                            background-color: inherit;
+                                            border-color: #d8deff;
+                                        "
+                                        required
+                                    />
+                                </div>
+                            </div>
+                            <fieldset class="flex flex-grow flex-col">
+                                <label
+                                    for="telefone"
+                                    class="ml-3 font-extrabold"
+                                    style="color: #e8ecff"
+                                    >Telefone</label
+                                >
+                                <input
+                                    id="telefone"
+                                    type="tel"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                    "
+                                    class="flex flex-grow p-1 border rounded-full"
+                                />
+                            </fieldset>
+
+                            <fieldset class="flex flex-grow flex-col">
+                                <label
+                                    for="email"
+                                    class="required-label ml-3 font-extrabold"
+                                    font-extrabold
+                                    style="color: #e8ecff"
+                                    >Email<span class="text-red-500"
+                                        >*</span
+                                    ></label
+                                >
+                                <input
+                                    id="email"
+                                    type="email"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                    "
+                                    class="flex p-1 flex-grow border rounded-full"
+                                    required
+                                />
+                            </fieldset>
+
+                            <fieldset class="flex flex-grow flex-col">
+                                <label
+                                    for="senha"
+                                    class="required-label ml-3 font-extrabold"
+                                    style="color: #e8ecff"
+                                    >Senha<span class="text-red-500"
+                                        >*</span
+                                    ></label
+                                >
+                                <input
+                                    id="senha"
+                                    type="password"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                    "
+                                    class="flex p-1 flex-grow border rounded-full"
+                                    required
+                                />
+                            </fieldset>
+
+                            <fieldset class="flex flex-grow flex-col">
+                                <label
+                                    for="confirmar-senha"
+                                    class="required-label ml-3 font-extrabold"
+                                    style="color: #e8ecff"
+                                    >Confirmação de Senha<span
+                                        class="text-red-500"
+                                        >*</span
+                                    ></label
+                                >
+                                <input
+                                    id="confirmar-senha"
+                                    type="password"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                    "
+                                    class="flex p-1 flex-grow border rounded-full"
+                                    required
+                                />
+                            </fieldset>
+
+                            <label
+                                class="flex items-center justify-center mb-2 font-extrabold"
+                                style="color: #e8ecff"
+                            >
+                                <input
+                                    type="checkbox"
+                                    style="
+                                        background-color: inherit;
+                                        border-color: #d8deff;
+                                        border-color: #d8deff;
+                                        background-color: #d8deff;
+                                    "
+                                    class="mr-2 rounded"
+                                />
+                                <span
+                                    class="text-gray-500"
+                                    style="color: #d8deff"
+                                    >Li e concordo com os termos e
+                                    condições.</span
+                                >
+                            </label>
+                            <div class="flex justify-center">
+                                <button
+                                    type="submit"
+                                    class="text-white px-4 font-bold py-1 rounded-full mr-2"
+                                    style="background-color: #61ffb3"
+                                >
+                                    Salvar
+                                </button>
+                                <button
+                                    type="button"
+                                    class="text-white font-bold px-4 py-1 rounded-full"
+                                    style="background-color: #ff6565"
+                                >
+                                    Cancelar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <p
+                        class="text-center text-black-500 mb-2"
+                        style="color: #d8deff"
+                    >
+                        Já possui cadastro?
+                        <a
+                            href="../Login/Login.html"
+                            class="underline font-semibold"
+                            >Faça login</a
+                        >
+                    </p>
+                </div>
+            </div>
+        </div>
 
         <script src="script.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
