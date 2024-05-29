@@ -97,6 +97,74 @@
       </div>
     </header>
 
+    <div class="flex w-full justify-center flex-col items-center px-28">
+      <div class="border rounded-t-md w-full px-6" style="background: #d4daff">
+        <div class="font-extrabold text-xl pt-4" style="color: #667eff">
+          Listar Despesas
+        </div>
+        <div class="flex flex-col gap-4">
+          <span class="font-bold text-lg mt-8" style="color: #667eff"
+            >Filtros</span
+          >
+          <fieldset>
+            <label
+              for="nome"
+              class="required-label font-extrabold"
+              style="color: #667eff"
+              >Descrição</label
+            >
+            <input
+              id="nome"
+              type="text"
+              style="background-color: inherit; border-color: #667eff"
+              class="flex-grow p-1 border rounded-full"
+              required
+            />
+          </fieldset>
+          <fieldset>
+            <label
+              for="nome"
+              class="required-label font-extrabold"
+              style="color: #667eff"
+              >Categoria</label
+            >
+            <select
+              id="nome"
+              type="text"
+              style="background-color: inherit; border-color: #667eff"
+              class="flex-grow p-1 border rounded-full"
+              required
+            >
+              <option>Teste</option>
+            </select>
+          </fieldset>
+
+          <div>
+            <button
+              type="submit"
+              class="text-white px-4 font-bold py-1 rounded-full mr-2"
+              style="background-color: #61ffb3"
+            >
+              Pesquisar
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        style="border-color: #667eff; color: #667eff"
+        class="border rounded-b-lg h-56 w-full px-10"
+      >
+        <div class="font-extrabold text-xl pt-4">Resultados</div>
+        <div class="flex flex-wrap w-full justify-between font-bold">
+          <div class="mt-4"><span> Descrição </span></div>
+          <div class="mt-4"><span> Categoria </span></div>
+          <div class="mt-4"><span> Data </span></div>
+          <div class="mt-4"><span> Valor </span></div>
+          <div class="mt-4"><span> Excluir </span></div>
+        </div>
+      </div>
+    </div>
+
     <div class="flex justify-center item">
       <footer
         class="fixed bottom-0 flex justify-center items-center border-2 rounded-t-3xl p-5"
