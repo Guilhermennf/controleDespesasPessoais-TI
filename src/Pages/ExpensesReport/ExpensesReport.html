@@ -1,34 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Metas financeiras - Controle de Despesas</title>
-        <!-- Importação da fonte Inter -->
+        <title>Relatório de Despesas - Controle de Despesas</title>
         <link
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+            href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
             rel="stylesheet"
         />
-        <link
-            href="https://cdn.jsdelivr.net/npm/tailwindcss@^2.0/dist/tailwind.min.css"
-            rel="stylesheet"
-        />
-        <link
-            href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"
-            rel="stylesheet"
-        />
-        <style>
-            .tab-inactive {
-                color: #aab8ff;
-                border-bottom: 2px solid #aab8ff;
-            }
-
-            .tab-active {
-                color: #d8deff;
-                border-bottom: 2px solid #d8deff;
-            }
-        </style>
     </head>
+
+    <style>
+        #scroll-bar {
+            max-height: calc(100vh - 300px);
+        }
+        #scroll-bar::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            background-color: #d8deff;
+        }
+        #scroll-bar::-webkit-scrollbar-track {
+            background-color: #d8deff;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        #scroll-bar::-webkit-scrollbar-thumb {
+            cursor: pointer;
+            background-color: #667eff;
+            border-radius: 10px;
+        }
+    </style>
 
     <body class="p-10">
         <header>
@@ -114,193 +117,86 @@
             </div>
         </header>
 
-        <div class="container mx-auto p-4">
-            <h2
-                class="text-4xl font-extrabold mb-4 py-4"
-                style="color: #667eff"
-            >
-                Minhas Metas Financeiras
-            </h2>
-
-            <div
-                id="goal-list"
-                class="flex flex-wrap p mb-6"
-                style="color: #667eff"
-            ></div>
-
-            <div>
-                <div class="flex items-center sm:w-1/2 px-2 mb-4">
-                    <button
-                        id="add-goal-btn"
-                        class="ml-2 mb-2 flex items-center"
-                        style="color: #667eff"
+        <h1 class="text-3xl font-bold text-center my-2" style="color: #667eff">
+            Relatório de Despesas
+        </h1>
+        <div
+            class="container mx-auto overflow-x-auto overflow-y-auto max-h-screen mt-8"
+            id="scroll-bar"
+        >
+            <div class="flex items-center justify-around p-3 mt-8">
+                <span class="mr-7"
+                    ><svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 77 77"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <svg
-                            class="w-8 h-8 mr-2 rounded-2xl"
-                            style="background-color: #667eff; color: #fff"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                            ></path>
-                        </svg>
-                        Adicionar Meta
-                    </button>
-                    <button
-                        id="edit-goal-btn"
-                        class="ml-2 mb-2 flex items-center"
-                        style="color: #667eff; display: none"
+                        <circle
+                            cx="38.0188"
+                            cy="38.0188"
+                            r="38.0188"
+                            fill="#667EFF"
+                        />
+                        <path
+                            d="M29.0266 21.4434V24.9073M29.0266 24.9073H23.0655C21.3235 24.9073 19.9114 26.3195 19.9114 28.0614V31.8352M29.0266 24.9073H37.8163M29.0266 24.9073V27.9863M46.6059 21.4434V24.9073M46.6059 24.9073H52.2414C53.9834 24.9073 55.3956 26.3195 55.3956 28.0614V31.8352M46.6059 24.9073H37.8163M46.6059 24.9073V27.9863M19.9114 31.8352H55.3956M19.9114 31.8352V50.6193C19.9114 52.3613 21.3235 53.7734 23.0655 53.7734H52.2414C53.9834 53.7734 55.3956 52.3613 55.3956 50.6193V31.8352M37.8163 24.9073V21.4434M37.8163 24.9073V27.9863"
+                            stroke="#D8DEFF"
+                            stroke-width="1.83"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </span>
+                <span class="mr-7">
+                    <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 76 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 512 512"
-                            class="w-8 h-8 mr-2 p-1 rounded-2xl"
-                            style="background-color: #667eff; color: #fff"
-                            stroke="currentColor"
-                        >
-                            <path
-                                style="width: 20px !important"
-                                d="M410.3 231l11.3-11.3-33.9-33.9-62.1-62.1L291.7 89.8l-11.3 11.3-22.6 22.6L58.6 322.9c-10.4 10.4-18 23.3-22.2 37.4L1 480.7c-2.5 8.4-.2 17.5 6.1 23.7s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L387.7 253.7 410.3 231zM160 399.4l-9.1 22.7c-4 3.1-8.5 5.4-13.3 6.9L59.4 452l23-78.1c1.4-4.9 3.8-9.4 6.9-13.3l22.7-9.1v32c0 8.8 7.2 16 16 16h32zM362.7 18.7L348.3 33.2 325.7 55.8 314.3 67.1l33.9 33.9 62.1 62.1 33.9 33.9 11.3-11.3 22.6-22.6 14.5-14.5c25-25 25-65.5 0-90.5L453.3 18.7c-25-25-65.5-25-90.5 0zm-47.4 168l-144 144c-6.2 6.2-16.4 6.2-22.6 0s-6.2-16.4 0-22.6l144-144c6.2-6.2 16.4-6.2 22.6 0s6.2 16.4 0 22.6z"
-                            />
-                        </svg>
-
-                        Editar Meta
-                    </button>
-                    <button
-                        id="cancel-edit-btn"
-                        class="ml-2 mb-2 flex items-center"
-                        style="color: #ff4c4c; display: none"
+                        <circle cx="38" cy="38" r="38" fill="#667EFF" />
+                        <path
+                            d="M37.1072 58.303V18H39.1696V58.303H37.1072ZM45.9708 30.0909C45.7923 28.2962 44.9999 26.8688 43.5935 25.8087C42.1871 24.7487 40.4186 24.2186 38.288 24.2186C36.7871 24.2186 35.4647 24.4758 34.3207 24.9901C33.1871 25.5043 32.295 26.218 31.6443 27.1312C31.0041 28.0338 30.6839 29.0623 30.6839 30.2169C30.6839 31.067 30.8676 31.8122 31.235 32.4524C31.6023 33.0926 32.0956 33.6437 32.7148 34.1055C33.3446 34.5568 34.0373 34.9451 34.793 35.2705C35.5591 35.5958 36.3306 35.8687 37.1072 36.0891L40.5078 37.0652C41.5364 37.3486 42.5649 37.7107 43.5935 38.1515C44.6221 38.5923 45.5614 39.1486 46.4116 39.8203C47.2722 40.4815 47.9597 41.2949 48.474 42.2605C48.9987 43.2156 49.2611 44.3649 49.2611 45.7083C49.2611 47.4296 48.8151 48.9777 47.9229 50.3526C47.0308 51.7275 45.7504 52.8191 44.0816 53.6273C42.4128 54.4249 40.4134 54.8237 38.0833 54.8237C35.8898 54.8237 33.9848 54.4616 32.3685 53.7375C30.7522 53.0028 29.4822 51.9899 28.5586 50.699C27.635 49.408 27.1155 47.9124 27 46.2121H30.0227C30.1277 47.4821 30.5475 48.5579 31.2822 49.4395C32.0169 50.3211 32.972 50.9929 34.1475 51.4547C35.323 51.906 36.6349 52.1316 38.0833 52.1316C39.6892 52.1316 41.1166 51.864 42.3655 51.3287C43.625 50.7829 44.6116 50.0273 45.3253 49.0617C46.0495 48.0856 46.4116 46.9521 46.4116 45.6611C46.4116 44.5696 46.1282 43.6564 45.5614 42.9218C44.9947 42.1766 44.2023 41.5521 43.1842 41.0483C42.1766 40.5445 41.0064 40.0984 39.6734 39.7101L35.8163 38.5766C33.2869 37.8209 31.3242 36.7766 29.9283 35.4437C28.5324 34.1107 27.8344 32.4104 27.8344 30.3428C27.8344 28.611 28.2962 27.0892 29.2198 25.7772C30.1539 24.4548 31.4134 23.4262 32.9982 22.6915C34.5936 21.9463 36.383 21.5737 38.3667 21.5737C40.3714 21.5737 42.1451 21.9411 43.688 22.6758C45.2308 23.4105 46.4536 24.4233 47.3562 25.7143C48.2693 26.9947 48.7573 28.4536 48.8203 30.0909H45.9708Z"
+                            fill="#D8DEFF"
+                        />
+                    </svg>
+                </span>
+                <span class="mr-7">
+                    <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 76 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                     >
-                        <svg
-                            class="w-8 h-8 mr-2 rounded-2xl"
-                            style="background-color: #ff4c4c; color: #fff"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            ></path>
-                        </svg>
-                        Cancelar Edição
-                    </button>
-                </div>
-
-                <form id="goal-form" class="w-full lg:w-auto">
-                    <div class="mb-4 flex flex-wrap flex-row w-full">
-                        <div class="flex flex-grow flex-col pr-3 mt-2">
-                            <label
-                                for="nome_meta"
-                                class="required-label font-extrabold rounded-t-xl pl-3 py-1"
-                                style="
-                                    color: #667eff;
-                                    background-color: #61ffb3;
-                                "
-                                >Nome da meta</label
-                            >
-                            <input
-                                id="nome_meta"
-                                type="text"
-                                style="
-                                    background-color: inherit;
-                                    border-color: #61ffb3;
-                                "
-                                class="flex-grow p-2 border rounded-b-xl"
-                                placeholder="Viagem"
-                                required
-                            />
-                        </div>
-                        <div class="flex flex-grow flex-col pr-3 mt-2">
-                            <label
-                                for="valorInicial"
-                                class="required-label font-extrabold rounded-t-xl pl-3 py-1"
-                                style="
-                                    color: #667eff;
-                                    background-color: #61ffb3;
-                                "
-                                >Valor Inicial</label
-                            >
-                            <input
-                                id="valor_inicial"
-                                type="text"
-                                style="
-                                    background-color: inherit;
-                                    border-color: #61ffb3;
-                                "
-                                class="flex-grow p-2 border rounded-b-xl"
-                                placeholder="R$ 0,00"
-                                required
-                            />
-                        </div>
-                        <div class="flex flex-grow flex-col pr-3 mt-2">
-                            <label
-                                for="valorTotal"
-                                class="required-label font-extrabold rounded-t-xl pl-3 py-1"
-                                style="
-                                    color: #667eff;
-                                    background-color: #61ffb3;
-                                "
-                                >Valor Total</label
-                            >
-                            <input
-                                id="valor_total"
-                                type="text"
-                                style="
-                                    background-color: inherit;
-                                    border-color: #61ffb3;
-                                "
-                                class="flex-grow p-2 border rounded-b-xl"
-                                placeholder="R$ 0,00"
-                                required
-                            />
-                        </div>
-                        <div class="flex flex-grow flex-col pr-3 mt-2">
-                            <div class="flex flex-col" style="color: #667eff">
-                                <label>Data Limite</label>
-                                <input
-                                    id="data_limite"
-                                    class="rounded-xl w-full bg-transparent p-1"
-                                    type="date"
-                                    style="border-color: #667eff"
-                                    required
-                                />
-                            </div>
-                            <div class="mt-1 ml-1 flex items-center">
-                                <label
-                                    class="inline-flex items-center cursor-pointer"
-                                >
-                                    <input
-                                        id="destaque"
-                                        type="checkbox"
-                                        value=""
-                                        class="sr-only peer"
-                                    />
-                                    <div
-                                        class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-700 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"
-                                    ></div>
-                                    <span
-                                        class="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300"
-                                        style="color: #aab8ff"
-                                        >Marcar como destaque</span
-                                    >
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <button type="submit" class="hidden">Submit</button>
-                </form>
+                        <circle cx="38" cy="38" r="38" fill="#667EFF" />
+                        <path
+                            d="M37.1072 58.303V18H39.1696V58.303H37.1072ZM45.9708 30.0909C45.7923 28.2962 44.9999 26.8688 43.5935 25.8087C42.1871 24.7487 40.4186 24.2186 38.288 24.2186C36.7871 24.2186 35.4647 24.4758 34.3207 24.9901C33.1871 25.5043 32.295 26.218 31.6443 27.1312C31.0041 28.0338 30.6839 29.0623 30.6839 30.2169C30.6839 31.067 30.8676 31.8122 31.235 32.4524C31.6023 33.0926 32.0956 33.6437 32.7148 34.1055C33.3446 34.5568 34.0373 34.9451 34.793 35.2705C35.5591 35.5958 36.3306 35.8687 37.1072 36.0891L40.5078 37.0652C41.5364 37.3486 42.5649 37.7107 43.5935 38.1515C44.6221 38.5923 45.5614 39.1486 46.4116 39.8203C47.2722 40.4815 47.9597 41.2949 48.474 42.2605C48.9987 43.2156 49.2611 44.3649 49.2611 45.7083C49.2611 47.4296 48.8151 48.9777 47.9229 50.3526C47.0308 51.7275 45.7504 52.8191 44.0816 53.6273C42.4128 54.4249 40.4134 54.8237 38.0833 54.8237C35.8898 54.8237 33.9848 54.4616 32.3685 53.7375C30.7522 53.0028 29.4822 51.9899 28.5586 50.699C27.635 49.408 27.1155 47.9124 27 46.2121H30.0227C30.1277 47.4821 30.5475 48.5579 31.2822 49.4395C32.0169 50.3211 32.972 50.9929 34.1475 51.4547C35.323 51.906 36.6349 52.1316 38.0833 52.1316C39.6892 52.1316 41.1166 51.864 42.3655 51.3287C43.625 50.7829 44.6116 50.0273 45.3253 49.0617C46.0495 48.0856 46.4116 46.9521 46.4116 45.6611C46.4116 44.5696 46.1282 43.6564 45.5614 42.9218C44.9947 42.1766 44.2023 41.5521 43.1842 41.0483C42.1766 40.5445 41.0064 40.0984 39.6734 39.7101L35.8163 38.5766C33.2869 37.8209 31.3242 36.7766 29.9283 35.4437C28.5324 34.1107 27.8344 32.4104 27.8344 30.3428C27.8344 28.611 28.2962 27.0892 29.2198 25.7772C30.1539 24.4548 31.4134 23.4262 32.9982 22.6915C34.5936 21.9463 36.383 21.5737 38.3667 21.5737C40.3714 21.5737 42.1451 21.9411 43.688 22.6758C45.2308 23.4105 46.4536 24.4233 47.3562 25.7143C48.2693 26.9947 48.7573 28.4536 48.8203 30.0909H45.9708Z"
+                            fill="#D8DEFF"
+                        />
+                    </svg>
+                </span>
+                <span class="mr-7">
+                    <svg
+                        width="50"
+                        height="50"
+                        viewBox="0 0 76 76"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <circle cx="38" cy="38" r="38" fill="#667EFF" />
+                        <path
+                            d="M37.1072 58.303V18H39.1696V58.303H37.1072ZM45.9708 30.0909C45.7923 28.2962 44.9999 26.8688 43.5935 25.8087C42.1871 24.7487 40.4186 24.2186 38.288 24.2186C36.7871 24.2186 35.4647 24.4758 34.3207 24.9901C33.1871 25.5043 32.295 26.218 31.6443 27.1312C31.0041 28.0338 30.6839 29.0623 30.6839 30.2169C30.6839 31.067 30.8676 31.8122 31.235 32.4524C31.6023 33.0926 32.0956 33.6437 32.7148 34.1055C33.3446 34.5568 34.0373 34.9451 34.793 35.2705C35.5591 35.5958 36.3306 35.8687 37.1072 36.0891L40.5078 37.0652C41.5364 37.3486 42.5649 37.7107 43.5935 38.1515C44.6221 38.5923 45.5614 39.1486 46.4116 39.8203C47.2722 40.4815 47.9597 41.2949 48.474 42.2605C48.9987 43.2156 49.2611 44.3649 49.2611 45.7083C49.2611 47.4296 48.8151 48.9777 47.9229 50.3526C47.0308 51.7275 45.7504 52.8191 44.0816 53.6273C42.4128 54.4249 40.4134 54.8237 38.0833 54.8237C35.8898 54.8237 33.9848 54.4616 32.3685 53.7375C30.7522 53.0028 29.4822 51.9899 28.5586 50.699C27.635 49.408 27.1155 47.9124 27 46.2121H30.0227C30.1277 47.4821 30.5475 48.5579 31.2822 49.4395C32.0169 50.3211 32.972 50.9929 34.1475 51.4547C35.323 51.906 36.6349 52.1316 38.0833 52.1316C39.6892 52.1316 41.1166 51.864 42.3655 51.3287C43.625 50.7829 44.6116 50.0273 45.3253 49.0617C46.0495 48.0856 46.4116 46.9521 46.4116 45.6611C46.4116 44.5696 46.1282 43.6564 45.5614 42.9218C44.9947 42.1766 44.2023 41.5521 43.1842 41.0483C42.1766 40.5445 41.0064 40.0984 39.6734 39.7101L35.8163 38.5766C33.2869 37.8209 31.3242 36.7766 29.9283 35.4437C28.5324 34.1107 27.8344 32.4104 27.8344 30.3428C27.8344 28.611 28.2962 27.0892 29.2198 25.7772C30.1539 24.4548 31.4134 23.4262 32.9982 22.6915C34.5936 21.9463 36.383 21.5737 38.3667 21.5737C40.3714 21.5737 42.1451 21.9411 43.688 22.6758C45.2308 23.4105 46.4536 24.4233 47.3562 25.7143C48.2693 26.9947 48.7573 28.4536 48.8203 30.0909H45.9708Z"
+                            fill="#D8DEFF"
+                        />
+                    </svg>
+                </span>
             </div>
+            <div class="flex justify-around p-3"></div>
         </div>
 
-        <div class="flex justify-center item">
+        <div class="flex justify-center item mt-10">
             <div class="h-20 lg:hidden"></div>
             <div class="h-10 hidden lg:block"></div>
 
@@ -360,7 +256,7 @@
                     <div class="mr-8">
                         <svg
                             width="28"
-                            height="40"
+                            height="50"
                             viewBox="0 0 28 40"
                             fill="#AAB8FF"
                             xmlns="http://www.w3.org/2000/svg"
@@ -375,22 +271,20 @@
                     </div>
                 </a>
                 <div class="mr-8">
-                    <a href="../CreateExpenses/CreateExpenses.html">
-                        <svg
-                            width="60"
-                            height="60"
-                            viewBox="0 0 73 73"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                fill-rule="evenodd"
-                                clip-rule="evenodd"
-                                d="M72.8556 36.4278C72.8556 16.3093 56.5463 1.52588e-05 36.4278 1.52588e-05C16.3093 1.52588e-05 0 16.3093 0 36.4278C0 56.5463 16.3093 72.8556 36.4278 72.8556C56.5463 72.8556 72.8556 56.5463 72.8556 36.4278ZM23.7898 37.9443H34.9114V49.066H38.9557V37.9443H49.0662V33.9001H38.9557V23.7895H34.9114V33.9001H23.7898V37.9443Z"
-                                fill="#AAB8FF"
-                            />
-                        </svg>
-                    </a>
+                    <svg
+                        width="60"
+                        height="60"
+                        viewBox="0 0 73 73"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M72.8556 36.4278C72.8556 16.3093 56.5463 1.52588e-05 36.4278 1.52588e-05C16.3093 1.52588e-05 0 16.3093 0 36.4278C0 56.5463 16.3093 72.8556 36.4278 72.8556C56.5463 72.8556 72.8556 56.5463 72.8556 36.4278ZM23.7898 37.9443H34.9114V49.066H38.9557V37.9443H49.0662V33.9001H38.9557V23.7895H34.9114V33.9001H23.7898V37.9443Z"
+                            fill="#AAB8FF"
+                        />
+                    </svg>
                 </div>
                 <div class="mr-8">
                     <svg
@@ -439,8 +333,6 @@
                 </div>
             </footer>
         </div>
-
-        <script src="FinancialGoal.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="ExpensesReport.js"></script>
     </body>
 </html>

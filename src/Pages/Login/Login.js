@@ -21,13 +21,15 @@ function authenticateUser() {
     }
 
     const users = JSON.parse(localStorage.getItem("users")) || [];
-    const userIndex = users.findIndex(
+    const user = users.find(
         (user) => user.email === email && user.password === password
     );
 
-    if (userIndex !== -1) {
-        users[userIndex].logado = true;
+    if (user) {
+        user.logado = true;
+
         localStorage.setItem("users", JSON.stringify(users));
+
         window.location.href = "../Home/Home.html";
     } else {
         Swal.fire({
