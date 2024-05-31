@@ -76,7 +76,7 @@
                                 /></svg
                         ></a>
                     </button>
-                    <button>
+                    <button id="logoutButton">
                         <a href="../Login/Login.html">
                             <svg
                                 width="39"
@@ -101,7 +101,7 @@
             </div>
         </header>
 
-        <div class="flex justify-end mt-8">
+        <!-- <div class="flex justify-end mt-8">
             <select
                 class="border rounded-t-3xl rounded-l-3xl"
                 style="border-color: #667eff; color: #667eff"
@@ -111,7 +111,7 @@
                 <option>Opção 2</option>
                 <option>Opção 3</option>
             </select>
-        </div>
+        </div> -->
 
         <div class="flex justify-center mt-8">
             <div class="flex items-center">
@@ -131,9 +131,7 @@
                 </svg>
             </div>
             <div class="ml-3">
-                <p class="text-xl font-semibold" style="color: #667eff">
-                    Bem-vindo, Pedro.
-                </p>
+                <p class="text-xl font-semibold" style="color: #667eff"></p>
                 <p style="color: #667eff">O que vamos registrar hoje?</p>
             </div>
         </div>
@@ -347,12 +345,14 @@
                             <p class="flex" style="color: #667eff">
                                 Relatório mensal
                             </p>
-                            <h4
-                                class="flex flex-wrap font-semibold underline"
-                                style="color: #667eff"
-                            >
-                                Ver desempenho ->
-                            </h4>
+                            <a href="../ExpensesReport/ExpensesReport.html">
+                                <h4
+                                    class="flex flex-wrap font-semibold underline"
+                                    style="color: #667eff"
+                                >
+                                    Ver desempenho ->
+                                </h4>
+                            </a>
                         </div>
                         <div class="ml-3">
                             <svg
@@ -517,6 +517,6 @@
             </footer>
         </div>
 
-        <script></script>
+        <script src="Home.js"></script>
     </body>
 </html>

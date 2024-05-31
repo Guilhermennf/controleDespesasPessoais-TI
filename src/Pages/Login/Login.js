@@ -26,6 +26,10 @@ function authenticateUser() {
     );
 
     if (user) {
+        user.logado = true;
+
+        localStorage.setItem("users", JSON.stringify(users));
+
         window.location.href = "../Home/Home.html";
     } else {
         Swal.fire({

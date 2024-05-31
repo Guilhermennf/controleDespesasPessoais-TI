@@ -1,4 +1,28 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const loggedUser = users.find((user) => user.logado);
+
+    if (!loggedUser) {
+        window.location.href = "../Login/Login.html";
+    }
+
+    const logoutButton = document.getElementById("logoutButton");
+
+    logoutButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        users.forEach((user) => {
+            if (user.logado) {
+                user.logado = false;
+            }
+        });
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        window.location.href = "../Login/Login.html";
+    });
+
     var inputValorInicial = document.getElementById("valor_inicial");
     var inputValorTotal = document.getElementById("valor_total");
 
@@ -258,17 +282,6 @@ document.addEventListener("DOMContentLoaded", function () {
         addGoalBtn.addEventListener("click", () => {
             if (form.dataset.editingId) {
                 saveEditedGoal();
-            } else {
-                if (validateFields()) {
-                    const nome = document.getElementById("nome_meta").value;
-                    const valorInicial = parseFloat(
-                        document
-                            .getElementById("valor_inicial")
-                            .value.replace("R$", "")
-                            .replace(".", "")
-                            .replace(",", ".")
-                    );
-                }
             }
         });
     };
@@ -282,19 +295,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const validateFields = () => {
         const nome = document.getElementById("nome_meta").value.trim();
-        const valorInicial = document
-            .getElementById("valor_inicial")
-            .value.replace("R$", "")
-            .replace(".", "")
-            .replace(",", ".");
-        const valorTotal = document
-            .getElementById("valor_total")
-            .value.replace("R$", "")
-            .replace(".", "")
-            .replace(",", ".");
+        const valorInicial = parseFloat(
+            document
+                .getElementById("valor_inicial")
+                .value.replace("R$", "")
+                .replace(".", "")
+                .replace(",", ".")
+        );
+        const valorTotal = parseFloat(
+            document
+                .getElementById("valor_total")
+                .value.replace("R$", "")
+                .replace(".", "")
+                .replace(",", ".")
+        );
         const dataLimite = document.getElementById("data_limite").value;
-
+        const isDestaque = document.getElementById("destaque").checked;
         let isValid = true;
+
+        const goals = JSON.parse(localStorage.getItem("goals")) || [];
+        const destaqueCount = goals.filter((goal) => goal.destaque).length;
 
         if (!nome) {
             isValid = false;
@@ -313,6 +333,16 @@ document.addEventListener("DOMContentLoaded", function () {
                 "Por favor, preencha o valor total corretamente.",
                 "error"
             );
+        } else if (valorInicial >= valorTotal) {
+            isValid = false;
+            Swal.fire(
+                "Erro",
+                "O valor inicial deve ser menor que o valor total.",
+                "error"
+            );
+        } else if (isDestaque && destaqueCount >= 2) {
+            isValid = false;
+            Swal.fire("Erro", "Você já possui duas metas destaque.", "error");
         } else if (!dataLimite) {
             isValid = false;
             Swal.fire("Erro", "Por favor, selecione uma data limite.", "error");
@@ -359,4 +389,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     loadGoals();
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+
+    const loggedUser = users.find((user) => user.logado);
+
+    if (!loggedUser) {
+        window.location.href = "../Login/Login.html";
+    }
+
+    const logoutButton = document.getElementById("logoutButton");
+
+    logoutButton.addEventListener("click", function (event) {
+        event.preventDefault();
+
+        users.forEach((user) => {
+            if (user.logado) {
+                user.logado = false;
+            }
+        });
+
+        localStorage.setItem("users", JSON.stringify(users));
+
+        window.location.href = "../Login/Login.html";
+    });
 });
