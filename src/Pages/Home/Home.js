@@ -25,4 +25,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
         window.location.href = "../Login/Login.html";
     });
+
+    function parseCurrency(value) {
+        return parseFloat(
+            value.replace("R$", "").replace(".", "").replace(",", ".")
+        );
+    }
+
+    function formatCurrency(value) {
+        return value.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "BRL",
+        });
+    }
+
+    const now = new Date();
+    const currentMonth = now.getMonth() + 1;
+    const currentYear = now.getFullYear();
+
+    const loggedInUser = users.find((user) => user.logado);
+
+    if (loggedInUser) {
+        const currentMonthExpenses = loggedInUser.expenses.filter((expense) => {
+            const expenseDate = new Date(expense.data);
+            const expenseMonth = expenseDate.getMonth() + 1;
+            const expenseYear = expenseDate.getFullYear();
+            return expenseMonth === currentMonth && expenseYear === currentYear;
+        });
+
+        const totalExpenses = currentMonthExpenses.reduce((total, expense) => {
+            return total + parseCurrency(expense.valor);
+        }, 0);
+
+        const saldoElement = document.getElementById("saldo-atual");
+        saldoElement.textContent = formatCurrency(totalExpenses);
+    }
 });
