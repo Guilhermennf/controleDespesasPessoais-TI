@@ -4,7 +4,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Controle de Despesas</title>
-
         <!-- Importação da fonte Inter -->
         <link
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
@@ -103,90 +102,110 @@
             </div>
         </header>
 
-        <div class="flex w-full justify-center flex-col items-center px-28">
-            <div
-                class="border rounded-t-md w-full px-6"
-                style="background: #d4daff"
-            >
-                <div class="font-extrabold text-xl pt-4" style="color: #667eff">
-                    Listar Despesas
-                </div>
-                <div class="flex flex-col gap-4">
-                    <span class="font-bold text-lg mt-8" style="color: #667eff"
-                        >Filtros</span
-                    >
-                    <fieldset>
+        <div class="w-full flex sm:pl-20 gap-6 flex-col mt-16">
+            <div class="text-2xl font-extrabold" style="color: #667eff">
+                Adicione suas despesas
+            </div>
+            <form id="expenseForm">
+                <div class="w-full flex-wrap flex gap-8">
+                    <div class="flex flex-col flex-grow">
                         <label
-                            for="descricao-filtro"
-                            class="required-label font-extrabold"
-                            style="color: #667eff"
+                            for="descricao"
+                            class="required-label font-extrabold rounded-t-xl pl-3 py-1"
+                            style="color: #667eff; background-color: #61ffb3"
                             >Descrição</label
                         >
                         <input
-                            id="descricao-filtro"
+                            id="descricao"
                             type="text"
                             style="
                                 background-color: inherit;
-                                border-color: #667eff;
+                                border-color: #61ffb3;
                             "
-                            class="flex-grow p-1 border rounded-full"
+                            class="flex-grow p-1 rounded-b-lg border-2"
+                            required
                         />
-                    </fieldset>
-                    <fieldset>
+                    </div>
+                    <div class="flex flex-col flex-grow">
                         <label
-                            for="categoria-filtro"
-                            class="required-label font-extrabold"
-                            style="color: #667eff"
+                            for="categoria"
+                            class="required-label font-extrabold rounded-t-xl pl-3 py-1"
+                            style="color: #667eff; background-color: #61ffb3"
                             >Categoria</label
                         >
                         <select
-                            id="categoria-filtro"
+                            required
+                            id="categoria"
+                            type="text"
                             style="
                                 background-color: inherit;
-                                border-color: #667eff;
+                                border-color: #61ffb3;
                             "
-                            class="flex-grow p-1 border rounded-full"
+                            class="flex-grow p-1 rounded-b-lg border-2"
                         >
-                            <option value="">Todas</option>
+                            <option>Selecione</option>
                             <option value="Alimentação">Alimentação</option>
                             <option value="Transporte">Transporte</option>
                             <option value="Saúde">Saúde</option>
                             <option value="Educação">Educação</option>
                             <option value="Lazer">Lazer</option>
                         </select>
-                    </fieldset>
-                    <div>
-                        <button
-                            type="button"
-                            class="text-white px-4 font-bold py-1 rounded-full mr-2"
-                            style="background-color: #61ffb3"
-                            onclick="filtrarDespesas()"
+                    </div>
+                    <div class="flex flex-col flex-grow">
+                        <label
+                            for="data"
+                            class="required-label font-extrabold rounded-t-xl pl-3 py-1"
+                            style="color: #667eff; background-color: #61ffb3"
+                            >Data</label
                         >
-                            Pesquisar
-                        </button>
+                        <input
+                            id="data"
+                            type="date"
+                            style="
+                                background-color: inherit;
+                                border-color: #61ffb3;
+                            "
+                            class="flex-grow p-1 rounded-b-lg border-2"
+                            required
+                        />
+                    </div>
+                    <div class="flex flex-col flex-grow">
+                        <label
+                            for="valor"
+                            class="required-label font-extrabold rounded-t-xl pl-3 py-1"
+                            style="color: #667eff; background-color: #61ffb3"
+                            >Valor</label
+                        >
+                        <input
+                            id="valor"
+                            type="text"
+                            placeholder="R$"
+                            style="
+                                background-color: inherit;
+                                border-color: #61ffb3;
+                            "
+                            class="flex-grow p-1 rounded-b-lg border-2"
+                            required
+                        />
                     </div>
                 </div>
-            </div>
-            <div
-                style="
-                    border-color: #667eff;
-                    color: #667eff;
-                    background: #d4daff;
-                "
-                class="border rounded-b-lg h-56 w-full px-10"
-            >
-                <div class="font-extrabold text-xl pt-4">Resultados</div>
-                <div
-                    id="resultados"
-                    class="flex flex-wrap w-full justify-between font-bold mt-4"
-                >
-                    <div>Descrição</div>
-                    <div>Categoria</div>
-                    <div>Data</div>
-                    <div>Valor</div>
-                    <div>Excluir</div>
+                <div class="flex gap-4 mt-8">
+                    <button
+                        class="rounded-xl py-1 px-4 text-white"
+                        style="background-color: #667eff"
+                        type="submit"
+                    >
+                        Confirmar
+                    </button>
+                    <button
+                        class="rounded-xl py-1 px-4 text-white"
+                        style="background-color: #aab8ff"
+                        type="reset"
+                    >
+                        Cancelar
+                    </button>
                 </div>
-            </div>
+            </form>
         </div>
 
         <div class="flex justify-center item">
@@ -244,38 +263,38 @@
                     </svg>
                 </div>
                 <div class="mr-8">
-                    <svg
-                        width="28"
-                        height="40"
-                        viewBox="0 0 28 40"
-                        fill="#667EFF"
-                        xmlns="http://www.w3.org/2000/svg"
-                    >
-                        <path
-                            fill-rule="evenodd"
-                            clip-rule="evenodd"
-                            d="M13.3771 0.0509164C12.3736 0.313294 11.5793 1.17134 11.4463 2.13673L11.3946 2.51184L9.67992 2.55093L7.96536 2.59003L7.75623 2.80682L7.54717 3.02354V5.10005V7.17648L7.79366 7.40462L8.04015 7.63275H14H19.9598L20.2063 7.40462L20.4528 7.17648V5.09184V3.0072L20.2063 2.77907L19.9598 2.55093H18.2802H16.6006L16.514 2.07911C16.3628 1.25499 15.8122 0.560974 15.0225 0.199071C14.6233 0.0162037 13.7951 -0.0583817 13.3771 0.0509164ZM0.863094 2.84412C0.594943 2.98492 0.375471 3.17608 0.226868 3.39811L0 3.73711V21.3146V38.892L0.226868 39.231C0.375471 39.453 0.594943 39.6442 0.863094 39.785L1.27238 40H14H26.7276L27.1369 39.785C27.4051 39.6442 27.6245 39.453 27.7731 39.231L28 38.892V21.3146V3.73711L27.7731 3.39811C27.6245 3.17608 27.4051 2.98492 27.1369 2.84412L26.7276 2.62912H23.9473H21.1669L21.2134 2.84412C21.239 2.96241 21.2904 3.18225 21.3276 3.33275C21.3649 3.48325 21.3955 4.53339 21.3958 5.6664C21.3963 7.95283 21.3638 8.13796 20.9117 8.42348C20.6889 8.56421 20.402 8.57038 14.0089 8.57062C7.45268 8.57093 7.33434 8.56827 7.09238 8.41332C6.632 8.11857 6.6037 7.95963 6.60423 5.6664C6.60445 4.53339 6.63509 3.48325 6.67238 3.33275C6.70958 3.18225 6.76098 2.96241 6.78657 2.84412L6.83306 2.62912H4.05268H1.27238L0.863094 2.84412ZM1.36657 4.23825C1.30664 4.39993 1.30664 38.2292 1.36657 38.3909C1.40808 38.503 2.59132 38.5145 14 38.5145C25.4087 38.5145 26.5919 38.503 26.6334 38.3909C26.6934 38.2292 26.6934 4.39993 26.6334 4.23825C26.5934 4.12997 26.3491 4.11457 24.6712 4.11457H22.7547L22.7546 6.12775L22.7546 8.14093L22.5389 8.61315C22.2761 9.18872 21.7631 9.68009 21.2205 9.87625C20.8555 10.0081 20.3882 10.0173 14 10.0173C7.61177 10.0173 7.14453 10.0081 6.77955 9.87625C6.23691 9.68009 5.72392 9.18872 5.46106 8.61315L5.24543 8.14093L5.24536 6.12775L5.24528 4.11457H3.32883C1.65087 4.11457 1.40664 4.12997 1.36657 4.23825Z"
-                            fill="#667EFF"
-                        />
-                    </svg>
-                </div>
-                <div class="mr-8">
-                    <a href="../CreateExpenses/CreateExpenses.html">
+                    <a href="../ExpensesList/ExpensesList.html">
                         <svg
-                            width="60"
-                            height="60"
-                            viewBox="0 0 73 73"
-                            fill="none"
+                            width="28"
+                            height="40"
+                            viewBox="0 0 28 40"
+                            fill="#AAB8FF"
                             xmlns="http://www.w3.org/2000/svg"
                         >
                             <path
                                 fill-rule="evenodd"
                                 clip-rule="evenodd"
-                                d="M72.8556 36.4278C72.8556 16.3093 56.5463 1.52588e-05 36.4278 1.52588e-05C16.3093 1.52588e-05 0 16.3093 0 36.4278C0 56.5463 16.3093 72.8556 36.4278 72.8556C56.5463 72.8556 72.8556 56.5463 72.8556 36.4278ZM23.7898 37.9443H34.9114V49.066H38.9557V37.9443H49.0662V33.9001H38.9557V23.7895H34.9114V33.9001H23.7898V37.9443Z"
+                                d="M13.3771 0.0509164C12.3736 0.313294 11.5793 1.17134 11.4463 2.13673L11.3946 2.51184L9.67992 2.55093L7.96536 2.59003L7.75623 2.80682L7.54717 3.02354V5.10005V7.17648L7.79366 7.40462L8.04015 7.63275H14H19.9598L20.2063 7.40462L20.4528 7.17648V5.09184V3.0072L20.2063 2.77907L19.9598 2.55093H18.2802H16.6006L16.514 2.07911C16.3628 1.25499 15.8122 0.560974 15.0225 0.199071C14.6233 0.0162037 13.7951 -0.0583817 13.3771 0.0509164ZM0.863094 2.84412C0.594943 2.98492 0.375471 3.17608 0.226868 3.39811L0 3.73711V21.3146V38.892L0.226868 39.231C0.375471 39.453 0.594943 39.6442 0.863094 39.785L1.27238 40H14H26.7276L27.1369 39.785C27.4051 39.6442 27.6245 39.453 27.7731 39.231L28 38.892V21.3146V3.73711L27.7731 3.39811C27.6245 3.17608 27.4051 2.98492 27.1369 2.84412L26.7276 2.62912H23.9473H21.1669L21.2134 2.84412C21.239 2.96241 21.2904 3.18225 21.3276 3.33275C21.3649 3.48325 21.3955 4.53339 21.3958 5.6664C21.3963 7.95283 21.3638 8.13796 20.9117 8.42348C20.6889 8.56421 20.402 8.57038 14.0089 8.57062C7.45268 8.57093 7.33434 8.56827 7.09238 8.41332C6.632 8.11857 6.6037 7.95963 6.60423 5.6664C6.60445 4.53339 6.63509 3.48325 6.67238 3.33275C6.70958 3.18225 6.76098 2.96241 6.78657 2.84412L6.83306 2.62912H4.05268H1.27238L0.863094 2.84412ZM1.36657 4.23825C1.30664 4.39993 1.30664 38.2292 1.36657 38.3909C1.40808 38.503 2.59132 38.5145 14 38.5145C25.4087 38.5145 26.5919 38.503 26.6334 38.3909C26.6934 38.2292 26.6934 4.39993 26.6334 4.23825C26.5934 4.12997 26.3491 4.11457 24.6712 4.11457H22.7547L22.7546 6.12775L22.7546 8.14093L22.5389 8.61315C22.2761 9.18872 21.7631 9.68009 21.2205 9.87625C20.8555 10.0081 20.3882 10.0173 14 10.0173C7.61177 10.0173 7.14453 10.0081 6.77955 9.87625C6.23691 9.68009 5.72392 9.18872 5.46106 8.61315L5.24543 8.14093L5.24536 6.12775L5.24528 4.11457H3.32883C1.65087 4.11457 1.40664 4.12997 1.36657 4.23825Z"
                                 fill="#AAB8FF"
                             />
                         </svg>
                     </a>
+                </div>
+                <div class="mr-8">
+                    <svg
+                        width="60"
+                        height="60"
+                        viewBox="0 0 73 73"
+                        fill="667EFF"
+                        xmlns="http://www.w3.org/2000/svg"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M72.8556 36.4278C72.8556 16.3093 56.5463 1.52588e-05 36.4278 1.52588e-05C16.3093 1.52588e-05 0 16.3093 0 36.4278C0 56.5463 16.3093 72.8556 36.4278 72.8556C56.5463 72.8556 72.8556 56.5463 72.8556 36.4278ZM23.7898 37.9443H34.9114V49.066H38.9557V37.9443H49.0662V33.9001H38.9557V23.7895H34.9114V33.9001H23.7898V37.9443Z"
+                            fill="#667EFF"
+                        />
+                    </svg>
                 </div>
                 <div class="mr-8">
                     <a href="../FinancialGoals/FinancialGoal.html">
@@ -327,6 +346,7 @@
             </footer>
         </div>
 
-        <script src="ExpensesList.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="CreateExpenses.js"></script>
     </body>
 </html>
