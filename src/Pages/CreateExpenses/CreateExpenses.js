@@ -9,20 +9,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const logoutButton = document.getElementById("logoutButton");
 
-    logoutButton.addEventListener("click", function (event) {
-        event.preventDefault();
-
-        users.forEach((user) => {
-            if (user.logado) {
-                user.logado = false;
-            }
-        });
-
-        localStorage.setItem("users", JSON.stringify(users));
-
-        window.location.href = "../Login/Login.html";
-    });
-
     var inputValor = document.getElementById("valor");
 
     inputValor.addEventListener("input", function (e) {
@@ -88,42 +74,17 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
 
-    //     // Coleta os valores dos campos do formulário
-    //     const descricao = document.getElementById("descricao").value;
-    //     const categoria = document.getElementById("categoria").value;
-    //     const data = document.getElementById("data").value;
-    //     const valor = document.getElementById("valor").value;
+    logoutButton.addEventListener("click", function (event) {
+        event.preventDefault();
 
-    //     // Cria um objeto com os valores
-    //     const expense = {
-    //         descricao: descricao,
-    //         categoria: categoria,
-    //         data: data,
-    //         valor: valor,
-    //     };
+        users.forEach((user) => {
+            if (user.logado) {
+                user.logado = false;
+            }
+        });
 
-    //     // Obtém os dados existentes no localStorage
-    //     let expenses = localStorage.getItem("expenses");
-    //     if (expenses) {
-    //         expenses = JSON.parse(expenses);
-    //     } else {
-    //         expenses = [];
-    //     }
+        localStorage.setItem("users", JSON.stringify(users));
 
-    //     // Adiciona o novo objeto ao array
-    //     expenses.push(expense);
-
-    //     // Salva o array atualizado no localStorage
-    //     localStorage.setItem("expenses", JSON.stringify(expenses));
-
-    //     // Limpa o formulário
-    //     document.getElementById("expenseForm").reset();
-
-    //     // Exibe a mensagem de sucesso usando SweetAlert2
-    //     Swal.fire({
-    //         icon: "success",
-    //         title: "Despesa Cadastrada",
-    //         text: "Sua despesa foi cadastrada com sucesso!",
-    //     });
-    // });
+        window.location.href = "../Login/Login.html";
+    });
 });
