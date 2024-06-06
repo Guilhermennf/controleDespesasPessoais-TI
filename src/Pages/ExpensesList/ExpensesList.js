@@ -90,10 +90,28 @@ function formatarData(data) {
 }
 
 function excluirDespesa(index) {
-    let despesas = JSON.parse(localStorage.getItem("expenses")) || [];
-    despesas.splice(index, 1);
-    localStorage.setItem("expenses", JSON.stringify(despesas));
-    listarDespesas();
+    Swal.fire({
+        title: "Tem certeza?",
+        text: "Você não poderá reverter isso!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Sim, excluir!",
+        cancelButtonText: "Cancelar",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            const loggedUser = users.find((user) => user.logado);
+
+            if (loggedUser && loggedUser.expenses) {
+                loggedUser.expenses.splice(index, 1);
+                localStorage.setItem("users", JSON.stringify(users));
+                listarDespesas();
+                Swal.fire("Excluído!", "A despesa foi excluída.", "success");
+            }
+        }
+    });
 }
 
 // Inicializa a listagem de despesas ao carregar a página
