@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!loggedUser) {
         window.location.href = "../Login/Login.html";
+        return;
     }
 
     const logoutButton = document.getElementById("logoutButton");
@@ -53,7 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const addGoalBtn = document.getElementById("add-goal-btn");
 
     const loadGoals = () => {
-        const goals = JSON.parse(localStorage.getItem("goals")) || [];
+        const goals = loggedUser.goals || [];
         goalList.innerHTML = "";
         goals.forEach((goal) => {
             addGoalToDOM(goal);
@@ -61,17 +62,25 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const saveGoals = (goals) => {
-        localStorage.setItem("goals", JSON.stringify(goals));
+        loggedUser.goals = goals;
+        const userIndex = users.findIndex(
+            (user) => user.email === loggedUser.email
+        );
+        if (userIndex !== -1) {
+            users[userIndex] = loggedUser;
+            localStorage.setItem("users", JSON.stringify(users));
+        }
     };
 
     const deleteGoal = (goalId) => {
-        let goals = JSON.parse(localStorage.getItem("goals")) || [];
+        let goals = loggedUser.goals || [];
         goals = goals.filter((goal) => goal.id !== goalId);
         saveGoals(goals);
         loadGoals();
         Swal.fire("Excluído!", "Sua meta foi excluída.", "success");
     };
 
+    // Código omitido para a função addGoalToDOM conforme pedido
     const addGoalToDOM = (goal) => {
         const goalDiv = document.createElement("div");
         goalDiv.className = "lg:w-1/2 py-2 pr-3 mb-4";
@@ -205,8 +214,9 @@ document.addEventListener("DOMContentLoaded", function () {
         };
 
         const saveEditedGoal = () => {
-            const goals = JSON.parse(localStorage.getItem("goals")) || [];
             const editingId = form.dataset.editingId;
+
+            const goals = loggedUser.goals || [];
             const editedGoalIndex = goals.findIndex(
                 (goal) => goal.id === editingId
             );
@@ -241,7 +251,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 const progresso = (valorInicial / valorTotal) * 100;
                 goals[editedGoalIndex].progresso = progresso;
 
-                localStorage.setItem("goals", JSON.stringify(goals));
+                loggedUser.goals = goals;
+                const userIndex = users.findIndex(
+                    (user) => user.email === loggedUser.email
+                );
+                if (userIndex !== -1) {
+                    users[userIndex] = loggedUser;
+                    localStorage.setItem("users", JSON.stringify(users));
+                }
 
                 form.reset();
                 delete form.dataset.editingId;
@@ -287,10 +304,10 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     const addGoal = (goal) => {
-        const goals = JSON.parse(localStorage.getItem("goals")) || [];
+        const goals = loggedUser.goals || [];
         goals.push(goal);
         saveGoals(goals);
-        addGoalToDOM(goal);
+        addGoalToDOM(goal); // Ignorar implementação dessa função conforme pedido
     };
 
     const validateFields = () => {
@@ -313,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const isDestaque = document.getElementById("destaque").checked;
         let isValid = true;
 
-        const goals = JSON.parse(localStorage.getItem("goals")) || [];
+        const goals = loggedUser.goals || [];
         const destaqueCount = goals.filter((goal) => goal.destaque).length;
 
         if (!nome) {
