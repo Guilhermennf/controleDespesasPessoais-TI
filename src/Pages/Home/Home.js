@@ -60,7 +60,18 @@ document.addEventListener("DOMContentLoaded", function () {
         const saldoElement = document.getElementById("saldo-atual");
         saldoElement.textContent = formatCurrency(totalExpenses);
 
-        console.log(loggedInUser.alert);
+        const goal = loggedInUser.goals.filter((g) => g.destaque === true);
+
+        if (goal.length > 0) {
+            document.getElementById("goal-name1").textContent = goal[0]?.nome;
+        }
+
+        if (goal.length > 1) {
+            document.getElementById("goal-name2").textContent = goal[1]?.nome;
+        } else {
+            document.getElementById("goal-name2").textContent =
+                "Nenhuma meta destaque...";
+        }
 
         if (loggedInUser.alert < totalExpenses) {
             const alertaElement = document.getElementById("alerta-id");
