@@ -50,29 +50,27 @@ function filtrarDespesas() {
 function listarDespesasFiltradas(despesas) {
     const resultados = document.getElementById("resultados");
     resultados.innerHTML = `
-    <div>Descrição</div>
-    <div>Categoria</div>
-    <div>Data</div>
-    <div>Valor</div>
-    <div>Excluir</div>
+    <div class="flex-container text-left">
+        <div>Descrição</div>
+        <div>Categoria</div>
+        <div>Data</div>
+        <div>Valor</div>
+        <div>Excluir</div>
+    </div>
 `;
 
     despesas.forEach((despesa, index) => {
         const despesaElement = document.createElement("div");
-        despesaElement.classList.add(
-            "flex",
-            "flex-wrap",
-            "w-full",
-            "justify-between",
-            "mt-2"
-        );
+        despesaElement.classList.add("flex-container", "text-left", "mt-2");
         despesaElement.innerHTML = `
+        <div class="flex-container text-left">
         <div>${despesa.descricao}</div>
         <div>${despesa.categoria}</div>
         <div>${formatarData(despesa.data)}</div>
         <div>${despesa.valor}</div>
         <div><button onclick="excluirDespesa(${index})">Excluir</button></div>
-    `;
+        </div>
+        `;
         resultados.appendChild(despesaElement);
     });
 }
