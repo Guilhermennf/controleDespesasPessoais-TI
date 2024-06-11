@@ -59,5 +59,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const saldoElement = document.getElementById("saldo-atual");
         saldoElement.textContent = formatCurrency(totalExpenses);
+
+        console.log(loggedInUser.alert);
+
+        if (loggedInUser.alert < totalExpenses) {
+            const alertaElement = document.getElementById("alerta-id");
+            alertaElement.textContent = "Você está gastando muito!";
+        }
     }
 });

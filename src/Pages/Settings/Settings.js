@@ -57,4 +57,36 @@ document.addEventListener("DOMContentLoaded", function () {
             target.classList.remove("hidden");
         });
     });
+
+    document
+        .getElementById("confirmBtn")
+        .addEventListener("click", function () {
+            const alertValue = parseInt(
+                document.getElementById("percent").value
+            );
+
+            if (!isNaN(alertValue)) {
+                let users = JSON.parse(localStorage.getItem("users")) || [];
+                for (let user of users) {
+                    if (user.logado) {
+                        user.alert = alertValue;
+                        break;
+                    }
+                }
+                localStorage.setItem("users", JSON.stringify(users));
+                Swal.fire({
+                    title: "Sucesso!",
+                    text: "Alerta salvo com sucesso!",
+                    icon: "success",
+                    confirmButtonText: "OK",
+                });
+            } else {
+                Swal.fire({
+                    title: "Erro!",
+                    text: "Por favor, insira um número válido.",
+                    icon: "error",
+                    confirmButtonText: "OK",
+                });
+            }
+        });
 });
